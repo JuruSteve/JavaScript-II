@@ -55,9 +55,21 @@ function contains(item, list, cb) {
 }
 
 /* STRETCH PROBLEM */
+const dupArray = [1, 1, 3, 3, 2, 4, 5];
 
 function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
+  const dupFree = array.filter((item, index) => {
+    return dupArray.indexOf(item) >= index;
+  });
   // Pass the duplicate free array to the callback function.
+  return cb(dupFree);
   // Do not mutate the original array.
 }
+
+console.log(dupArray);
+console.log(
+  removeDuplicates(dupArray, function(dup) {
+    console.log(dup.sort());
+  })
+);
